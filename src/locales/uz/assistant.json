@@ -1,0 +1,22 @@
+{
+  "fabLabel": "AI jadval yordamchisi",
+  "title": "AI Jadval Yordamchisi",
+  "subtitle": "Kuningiz yoki odatlaringizni ta’riflang — men buni tayyor eslatmalarga aylantiraman.",
+  "placeholder": "masalan: har 2 soatda suv ichmoqchiman, ertalab mashq qilaman va soat 23:00 da uxlayman",
+  "generate": "Jadval yaratish",
+  "loading": "O‘ylayapman…",
+  "resultsTitle": "Taklif etilgan eslatmalar",
+  "noResults": "Bu ta’rifdan eslatmalar yaratib bo‘lmadi. Boshqacha yozib ko‘ring.",
+  "addSelected": "Tanlanganlarni eslatmalarga qo‘shish",
+  "added": "Eslatmalaringizga qo‘shildi",
+  "startOver": "Qaytadan boshlash",
+  "emptyPromptError": "Avval kuningizni ta’riflang.",
+  "disclaimer": "Gemini asosida ishlaydi — qo‘shishdan oldin takliflarni tekshiring.",
+  "repeat": { "once": "Bir marta", "daily": "Har kuni", "weekly": "Hafta kunlari bo‘yicha" },
+  "errors": {
+    "network": "Sun’iy intellekt xizmatiga ulanib bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.",
+    "quota": "Sun’iy intellekt xizmati vaqtincha band. Birozdan so‘ng qayta urinib ko‘ring.",
+    "missingKey": "Sun’iy intellekt xizmati sozlanmagan.",
+    "generic": "Nimadir xato ketdi. Qayta urinib ko‘ring."
+  }
+}

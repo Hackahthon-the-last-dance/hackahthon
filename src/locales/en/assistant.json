@@ -1,0 +1,22 @@
+{
+  "fabLabel": "AI schedule assistant",
+  "title": "AI Schedule Assistant",
+  "subtitle": "Describe your day or habits — I’ll turn it into ready-made reminders.",
+  "placeholder": "e.g. I want to drink water every 2 hours, work out in the mornings, and go to bed at 11pm",
+  "generate": "Generate schedule",
+  "loading": "Thinking…",
+  "resultsTitle": "Suggested reminders",
+  "noResults": "No reminders could be generated from that. Try describing it differently.",
+  "addSelected": "Add selected to Reminders",
+  "added": "Added to your reminders",
+  "startOver": "Start over",
+  "emptyPromptError": "Describe your day first.",
+  "disclaimer": "Powered by Gemini — review suggestions before adding them.",
+  "repeat": { "once": "Once", "daily": "Daily", "weekly": "Weekly" },
+  "errors": {
+    "network": "Couldn’t reach the AI service. Check your connection and try again.",
+    "quota": "The AI service is temporarily busy. Please try again in a moment.",
+    "missingKey": "AI service isn’t configured.",
+    "generic": "Something went wrong. Please try again."
+  }
+}

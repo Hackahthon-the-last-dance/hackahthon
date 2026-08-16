@@ -14,6 +14,7 @@ import checkout from './checkout.json';
 import seller from './seller.json';
 import emergency from './emergency.json';
 import profile from './profile.json';
+import assistant from './assistant.json';
 
 export default {
   common,
@@ -32,4 +33,5 @@ export default {
   seller,
   emergency,
   profile,
+  assistant,
 };

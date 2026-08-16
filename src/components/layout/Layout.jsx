@@ -1,9 +1,12 @@
 import { Outlet, Link } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
+import AIScheduleAssistant from '../shared/AIScheduleAssistant.jsx';
 import { useTranslation } from '../../context/I18nContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 export default function Layout() {
   const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className="flex min-h-screen flex-col bg-bg">
@@ -20,6 +23,8 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {isAuthenticated && <AIScheduleAssistant />}
     </div>
   );
 }
