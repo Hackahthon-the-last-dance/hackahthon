@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "eyebrow": "Simple. Useful. Every day.",
+    "title": "Take care of yourself. Every day.",
+    "subtitle": "Track your habits, plan your day, stay active and keep everything about your wellness in one simple place.",
+    "getStarted": "Get Started",
+    "exploreStore": "Explore Store"
+  },
+  "preview": {
+    "title": "Everything in one place",
+    "water": { "label": "Water", "hint": "Track your daily intake" },
+    "sleep": { "label": "Sleep", "hint": "Build a healthy rhythm" },
+    "workout": { "label": "Workout", "hint": "Log your activity" },
+    "medication": { "label": "Medication", "hint": "Never miss a dose" },
+    "tasks": { "label": "Today's tasks", "hint": "One clear plan for the day" }
+  }
+}

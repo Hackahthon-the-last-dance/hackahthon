@@ -1,190 +1,106 @@
-// Emergency SOS Protocol Component with 1-Tap Trigger, Emergency Contacts Dispatch, and 911 Direct Dial
-import React, { useState, useEffect } from 'react';
-import {
-  ShieldAlert,
-  Phone,
-  Radio,
-  MapPin,
-  CheckCircle2,
-  AlertTriangle,
-  X,
-  Volume2,
-} from 'lucide-react';
-import Button from '../common/Button';
-import { useApp } from '../../context/AppContext';
+import { useEffect, useState } from 'react';
+import { ShieldAlert, Phone, Radio, X } from 'lucide-react';
+import { useTranslation } from '../../context/I18nContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
+import Button from '../shared/Button.jsx';
 
 export default function EmergencySOS() {
-  const { user, userLocation, triggerEmergencySOS, cancelEmergencySOS, sosActive, addToast } = useApp();
+  const { t } = useTranslation();
+  const { currentUser } = useAuth();
+  const contact = currentUser?.emergencyContact;
+
   const [countdown, setCountdown] = useState(null);
-  const [alertDispatched, setAlertDispatched] = useState(false);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    let timer;
-    if (countdown !== null && countdown > 0) {
-      timer = setTimeout(() => setCountdown(countdown - 1), 1000);
-    } else if (countdown === 0) {
+    if (countdown === null) return undefined;
+    if (countdown === 0) {
+      setActive(true);
       setCountdown(null);
-      setAlertDispatched(true);
-      triggerEmergencySOS();
+      return undefined;
     }
+    const timer = setTimeout(() => setCountdown((c) => c - 1), 1000);
     return () => clearTimeout(timer);
-  }, [countdown, triggerEmergencySOS]);
+  }, [countdown]);
 
-  const handleStartSOS = () => {
-    setCountdown(5);
-  };
+  const contactName = contact?.name || t('emergency.medicalId.notSet');
 
-  const handleCancelCountdown = () => {
-    setCountdown(null);
-    addToast('Emergency countdown cancelled.', 'info');
-  };
+  if (countdown !== null) {
+    return (
+      <div className="animate-scale-in flex flex-col items-center gap-4 rounded-2xl border-2 border-danger bg-danger-soft p-8 text-center shadow-[0_0_25px_rgba(244,63,94,0.25)]">
+        <div className="flex h-28 w-28 items-center justify-center rounded-full bg-danger text-4xl font-extrabold text-white shadow-[0_0_0_15px_rgba(244,63,94,0.25)]">
+          {countdown}
+        </div>
+        <div>
+          <h3 className="text-xl font-extrabold text-danger">
+            {t('emergency.sos.dispatchingTitle', { seconds: countdown })}
+          </h3>
+          <p className="mt-1 text-sm text-text-secondary">{t('emergency.sos.dispatchingDescription')}</p>
+        </div>
+        <Button variant="secondary" size="lg" icon={X} onClick={() => setCountdown(null)}>
+          {t('emergency.sos.cancel')}
+        </Button>
+      </div>
+    );
+  }
 
-  const handleResetSOS = () => {
-    setAlertDispatched(false);
-    cancelEmergencySOS();
-  };
-
-  return (
-    <div
-      style={{
-        backgroundColor: sosActive ? 'var(--accent-rose-light)' : 'var(--bg-surface)',
-        border: sosActive ? '2px solid var(--accent-rose)' : '1px solid var(--border-card)',
-        borderRadius: 'var(--radius-xl)',
-        padding: '28px',
-        boxShadow: sosActive ? '0 0 25px rgba(244, 63, 94, 0.3)' : 'var(--shadow-md)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        gap: '20px',
-        position: 'relative',
-        transition: 'all var(--trans-smooth)',
-      }}
-    >
-      {/* SOS Center Pulse Button */}
-      {countdown !== null ? (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }} className="animate-scale-in">
-          <div
-            style={{
-              width: '110px',
-              height: '110px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--accent-rose)',
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '3rem',
-              fontWeight: 800,
-              fontFamily: 'var(--font-display)',
-              boxShadow: '0 0 0 15px rgba(244, 63, 94, 0.3)',
-              animation: 'pulseGlow 1s infinite',
-            }}
-          >
-            {countdown}
-          </div>
-          <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-rose)' }}>
-              Dispatching Emergency Alert in {countdown}s...
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-              Broadcasting your location ({userLocation.lat.toFixed(4)}, {userLocation.lng.toFixed(4)}) to emergency contacts.
-            </p>
-          </div>
-          <Button variant="secondary" size="lg" onClick={handleCancelCountdown} icon={X}>
-            Cancel Alert
+  if (active) {
+    return (
+      <div className="animate-scale-in flex flex-col items-center gap-4 rounded-2xl border-2 border-danger bg-danger-soft p-8 text-center">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-danger text-white shadow-[0_0_20px_rgba(244,63,94,0.4)]">
+          <Radio size={36} className="animate-pulse" />
+        </div>
+        <div>
+          <h3 className="text-2xl font-extrabold text-danger">{t('emergency.sos.activeTitle')}</h3>
+          <p className="mt-1 max-w-md text-sm text-text">
+            {t('emergency.sos.activeDescription', { name: contactName })}
+          </p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-3">
+          <a href="tel:911">
+            <Button variant="danger" size="lg" icon={Phone}>
+              {t('emergency.sos.call911')}
+            </Button>
+          </a>
+          <Button variant="secondary" size="lg" onClick={() => setActive(false)}>
+            {t('emergency.sos.standDown')}
           </Button>
         </div>
-      ) : alertDispatched || sosActive ? (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }} className="animate-scale-in">
-          <div
-            style={{
-              width: '80px',
-              height: '80px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--accent-rose)',
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 20px rgba(244, 63, 94, 0.5)',
-            }}
-          >
-            <Radio size={40} className="animate-pulse" />
-          </div>
+      </div>
+    );
+  }
 
-          <div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent-rose)' }}>
-              🚨 EMERGENCY PROTOCOL ACTIVE
-            </h3>
-            <p style={{ fontSize: '0.9375rem', color: 'var(--text-primary)', maxWidth: '480px', marginTop: '4px' }}>
-              Your emergency contacts ({user?.emergencyContact?.name || 'Aziza Karimova'}) have received your live location and critical Medical ID details.
-            </p>
-          </div>
+  return (
+    <div className="card flex flex-col items-center gap-4 p-8 text-center">
+      <button
+        type="button"
+        onClick={() => setCountdown(5)}
+        title={t('emergency.sos.startHint')}
+        className="card-hoverable flex h-28 w-28 flex-col items-center justify-center rounded-full border-[6px] border-danger-soft bg-danger text-white shadow-[0_8px_24px_rgba(244,63,94,0.35)]"
+      >
+        <ShieldAlert size={38} />
+        <span className="mt-0.5 text-base font-extrabold tracking-wide">{t('emergency.sos.startButton')}</span>
+      </button>
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="tel:911" style={{ textDecoration: 'none' }}>
-              <Button variant="danger" size="lg" icon={Phone}>
-                Call 911 Immediately
-              </Button>
-            </a>
-            <Button variant="secondary" size="lg" onClick={handleResetSOS}>
-              Stand Down / Resolve SOS
+      <div>
+        <h3 className="text-lg font-extrabold text-text">{t('emergency.sos.idleTitle')}</h3>
+        <p className="mx-auto mt-1 max-w-md text-sm text-text-secondary">{t('emergency.sos.idleDescription')}</p>
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-3">
+        <a href="tel:911">
+          <Button variant="danger" icon={Phone}>
+            {t('emergency.sos.call911')}
+          </Button>
+        </a>
+        {contact?.phone && (
+          <a href={`tel:${contact.phone}`}>
+            <Button variant="secondary" icon={Phone}>
+              {t('emergency.sos.callContact', { name: contact.name })}
             </Button>
-          </div>
-        </div>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', width: '100%' }}>
-          <button
-            onClick={handleStartSOS}
-            style={{
-              width: '120px',
-              height: '120px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--accent-rose)',
-              color: '#ffffff',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '6px solid var(--accent-rose-light)',
-              cursor: 'pointer',
-              boxShadow: '0 8px 24px rgba(244, 63, 94, 0.35)',
-              transition: 'transform var(--trans-fast), box-shadow var(--trans-fast)',
-            }}
-            className="card-hoverable"
-            title="Press and hold or tap to initiate Emergency SOS"
-          >
-            <ShieldAlert size={42} />
-            <span style={{ fontSize: '1.1rem', fontWeight: 800, letterSpacing: '0.05em', marginTop: '2px' }}>
-              SOS
-            </span>
-          </button>
-
-          <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-              One-Tap Emergency Alert Protocol
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', maxWidth: '440px', margin: '4px auto 0' }}>
-              Instantly notifies your primary emergency contact (<strong>{user?.emergencyContact?.name}</strong>) with your live GPS coordinates, allergies, and blood type.
-            </p>
-          </div>
-
-          {/* Direct 911 / 112 Hotline Quick Action */}
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <a href="tel:911" style={{ textDecoration: 'none' }}>
-              <Button variant="danger" size="md" icon={Phone}>
-                Call 911 (Emergency)
-              </Button>
-            </a>
-            <a href={`tel:${user?.emergencyContact?.phone || '+15552345678'}`} style={{ textDecoration: 'none' }}>
-              <Button variant="secondary" size="md" icon={Phone}>
-                Call {user?.emergencyContact?.name || 'Contact'} ({user?.emergencyContact?.phone})
-              </Button>
-            </a>
-          </div>
-        </div>
-      )}
+          </a>
+        )}
+      </div>
     </div>
   );
 }

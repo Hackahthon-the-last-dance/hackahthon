@@ -1,0 +1,9 @@
+{
+  "empty": "Hozircha sharhlar yo‘q. Birinchi bo‘ling.",
+  "addTitle": "Sharh yozish",
+  "rating": "Baho",
+  "comment": "Izoh",
+  "commentPlaceholder": "Fikringizni bildiring…",
+  "submit": "Sharhni yuborish",
+  "authorFallback": "Anonim"
+}

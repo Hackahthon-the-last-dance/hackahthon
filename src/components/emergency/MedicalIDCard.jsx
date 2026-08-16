@@ -1,155 +1,101 @@
-// Medical ID Card displaying vital emergency medical records
-import React from 'react';
-import {
-  ShieldCheck,
-  User,
-  Phone,
-  AlertCircle,
-  Heart,
-  FileText,
-  Edit2,
-} from 'lucide-react';
-import Button from '../common/Button';
-import Badge from '../common/Badge';
-import { useApp } from '../../context/AppContext';
+import { useNavigate } from 'react-router-dom';
+import { ShieldCheck, Phone, Edit2 } from 'lucide-react';
+import { useTranslation } from '../../context/I18nContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
+import Button from '../shared/Button.jsx';
+import Badge from '../shared/Badge.jsx';
 
-export default function MedicalIDCard({ onEditProfile }) {
-  const { user } = useApp();
+function toList(value) {
+  if (Array.isArray(value)) return value.filter(Boolean);
+  if (typeof value === 'string' && value.trim()) return value.split(',').map((v) => v.trim());
+  return [];
+}
+
+export default function MedicalIDCard() {
+  const { t } = useTranslation();
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const allergies = toList(currentUser?.allergies);
+  const conditions = toList(currentUser?.conditions);
+  const contact = currentUser?.emergencyContact;
 
   return (
-    <div
-      style={{
-        backgroundColor: 'var(--bg-surface)',
-        border: '1px solid var(--border-card)',
-        borderRadius: 'var(--radius-xl)',
-        padding: '24px',
-        boxShadow: 'var(--shadow-sm)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '18px',
-      }}
-      className="card-hoverable"
-    >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div
-            style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: 'var(--radius-md)',
-              backgroundColor: 'var(--accent-rose-light)',
-              color: 'var(--accent-rose)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <ShieldCheck size={20} />
+    <div className="card-hoverable card flex flex-col gap-4 p-6">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-danger-soft text-danger">
+            <ShieldCheck size={19} />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
-              Official Medical ID
-            </h3>
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              Accessible by emergency responders & paramedics
-            </span>
+            <h3 className="text-base font-extrabold text-text">{t('emergency.medicalId.title')}</h3>
+            <span className="text-xs text-text-muted">{t('emergency.medicalId.subtitle')}</span>
           </div>
         </div>
-
-        <Button
-          variant="secondary"
-          size="sm"
-          icon={Edit2}
-          onClick={onEditProfile}
-        >
-          Edit ID
+        <Button variant="secondary" size="sm" icon={Edit2} onClick={() => navigate('/profile')}>
+          {t('emergency.medicalId.edit')}
         </Button>
       </div>
 
-      {/* Grid of Medical Vitals */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
-        <div style={{ padding: '12px', backgroundColor: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)' }}>BLOOD TYPE</span>
-          <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-rose)', margin: '2px 0 0' }}>
-            {user?.bloodType || 'O+'}
-          </p>
-        </div>
+      <div className="rounded-lg bg-input p-3">
+        <span className="text-[0.72rem] font-bold text-text-muted">{t('emergency.medicalId.bloodType').toUpperCase()}</span>
+        <p className="mt-0.5 text-xl font-extrabold text-danger">
+          {currentUser?.bloodType || t('emergency.medicalId.notSet')}
+        </p>
+      </div>
 
-        <div style={{ padding: '12px', backgroundColor: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)' }}>AGE / GENDER</span>
-          <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', margin: '2px 0 0' }}>
-            {user?.age || 28} yrs (M)
-          </p>
-        </div>
-
-        <div style={{ padding: '12px', backgroundColor: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)' }}>HEIGHT / WEIGHT</span>
-          <p style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', margin: '2px 0 0' }}>
-            {user?.height || '182 cm'} • {user?.weight || '76 kg'}
-          </p>
+      <div>
+        <span className="mb-1.5 block text-xs font-bold text-text-muted">
+          {t('emergency.medicalId.allergies').toUpperCase()}
+        </span>
+        <div className="flex flex-wrap gap-1.5">
+          {allergies.length > 0 ? (
+            allergies.map((a) => (
+              <Badge key={a} variant="danger">
+                {a}
+              </Badge>
+            ))
+          ) : (
+            <span className="text-sm text-text-muted">{t('emergency.medicalId.noneListed')}</span>
+          )}
         </div>
       </div>
 
-      {/* Allergies & Medical Conditions */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <div>
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
-            KNOWN ALLERGIES & SENSITIVITIES
-          </span>
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-            {(user?.allergies || ['Penicillin', 'Peanuts (Mild)']).map((a, i) => (
-              <Badge key={i} variant="danger" size="sm">
-                ⚠️ {a}
-              </Badge>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
-            PRIMARY MEDICAL CONDITIONS
-          </span>
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-            {(user?.conditions || ['Mild Seasonal Asthma']).map((c, i) => (
-              <Badge key={i} variant="warning" size="sm">
+      <div>
+        <span className="mb-1.5 block text-xs font-bold text-text-muted">
+          {t('emergency.medicalId.conditions').toUpperCase()}
+        </span>
+        <div className="flex flex-wrap gap-1.5">
+          {conditions.length > 0 ? (
+            conditions.map((c) => (
+              <Badge key={c} variant="warning">
                 {c}
               </Badge>
-            ))}
-          </div>
+            ))
+          ) : (
+            <span className="text-sm text-text-muted">{t('emergency.medicalId.noneListed')}</span>
+          )}
         </div>
       </div>
 
-      {/* Primary Emergency Contact & Insurance */}
-      <div
-        style={{
-          padding: '14px',
-          backgroundColor: 'var(--bg-input)',
-          borderRadius: 'var(--radius-lg)',
-          border: '1px solid var(--border-subtle)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '10px',
-        }}
-      >
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border bg-input p-3.5">
         <div>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-            PRIMARY EMERGENCY CONTACT
+          <span className="text-[0.72rem] font-bold text-text-muted">
+            {t('emergency.medicalId.emergencyContact').toUpperCase()}
           </span>
-          <h5 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', margin: '2px 0' }}>
-            {user?.emergencyContact?.name} ({user?.emergencyContact?.relation})
+          <h5 className="text-sm font-bold text-text">
+            {contact?.name ?? t('emergency.medicalId.notSet')}
+            {contact?.relation ? ` (${contact.relation})` : ''}
           </h5>
-          <span style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
-            {user?.emergencyContact?.phone}
-          </span>
+          {contact?.phone && <span className="text-sm text-text-secondary">{contact.phone}</span>}
         </div>
-
-        <a href={`tel:${user?.emergencyContact?.phone}`} style={{ textDecoration: 'none' }}>
-          <Button variant="secondary" size="sm" icon={Phone}>
-            Call Contact
-          </Button>
-        </a>
+        {contact?.phone && (
+          <a href={`tel:${contact.phone}`}>
+            <Button variant="secondary" size="sm" icon={Phone}>
+              {t('emergency.medicalId.callContact')}
+            </Button>
+          </a>
+        )}
       </div>
     </div>
   );

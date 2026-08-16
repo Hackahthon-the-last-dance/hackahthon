@@ -1,0 +1,63 @@
+{
+  "brand": "HealthFlow",
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "habits": "Habits",
+    "reminders": "Reminders",
+    "progress": "Progress",
+    "store": "Store",
+    "cart": "Cart",
+    "profile": "Profile",
+    "about": "About",
+    "emergency": "Emergency",
+    "login": "Log in",
+    "register": "Get Started",
+    "logout": "Log out",
+    "menu": "Menu"
+  },
+  "actions": {
+    "save": "Save changes",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "close": "Close",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "confirm": "Confirm",
+    "back": "Back",
+    "goHome": "Go back home",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "filters": "Filters",
+    "sort": "Sort",
+    "loadMore": "Load more",
+    "viewAll": "View all",
+    "learnMore": "Learn more"
+  },
+  "states": {
+    "loading": "Loading…",
+    "empty": "Nothing here yet",
+    "error": "Something went wrong",
+    "success": "Done",
+    "disabled": "Unavailable",
+    "completed": "Completed"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "label": "Language",
+    "ru": "Русский",
+    "en": "English",
+    "uz": "O‘zbekcha"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved."
+  }
+}

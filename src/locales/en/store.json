@@ -1,0 +1,19 @@
+{
+  "title": "Store",
+  "subtitle": "Wellness essentials, delivered.",
+  "searchPlaceholder": "Search products",
+  "filters": { "category": "Category", "allCategories": "All categories" },
+  "sort": {
+    "label": "Sort",
+    "popularity": "Popularity",
+    "priceAsc": "Price: low to high",
+    "priceDesc": "Price: high to low",
+    "ratingDesc": "Top rated"
+  },
+  "empty": "No products yet.",
+  "errorTitle": "Couldn’t load the store",
+  "errorDescription": "We couldn’t reach the product catalog. Check your connection and try again.",
+  "resultsCount": "{{count}} products",
+  "addToCart": "Add to cart",
+  "view": "View"
+}

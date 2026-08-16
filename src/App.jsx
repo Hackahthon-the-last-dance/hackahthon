@@ -1,115 +1,76 @@
-// HealthFlow Main Application Routing and Frame Assembly
-import React, { useState } from 'react';
-import { AppProvider, useApp } from './context/AppContext';
-import Navbar from './components/layout/Navbar';
-import Sidebar from './components/layout/Sidebar';
-import MobileBottomNav from './components/layout/MobileBottomNav';
-import NotificationDrawer from './components/layout/NotificationDrawer';
-import ToastContainer from './components/common/Toast';
-import QuickLogModal from './components/dashboard/QuickLogModal';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext.jsx';
+import { I18nProvider } from './context/I18nContext.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
+import { WellnessProvider } from './context/WellnessContext.jsx';
+import { CartProvider } from './context/CartContext.jsx';
+import Layout from './components/layout/Layout.jsx';
+import ProtectedRoute from './components/routing/ProtectedRoute.jsx';
+import PageSuspenseFallback from './components/shared/PageSuspenseFallback.jsx';
 
-// Pages
-import LandingPage from './pages/LandingPage';
-import AuthPage from './pages/AuthPage';
-import OnboardingPage from './pages/OnboardingPage';
-import DashboardPage from './pages/DashboardPage';
-import HabitsPage from './pages/HabitsPage';
-import HealthPage from './pages/HealthPage';
-import MedicationsPage from './pages/MedicationsPage';
-import AppointmentsPage from './pages/AppointmentsPage';
-import EmergencyPage from './pages/EmergencyPage';
-import InsightsPage from './pages/InsightsPage';
-import ProfilePage from './pages/ProfilePage';
-import SettingsPage from './pages/SettingsPage';
+const Home = lazy(() => import('./pages/Home.jsx'));
+const Login = lazy(() => import('./pages/Login.jsx'));
+const Register = lazy(() => import('./pages/Register.jsx'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword.jsx'));
+const Dashboard = lazy(() => import('./pages/Dashboard.jsx'));
+const Habits = lazy(() => import('./pages/Habits.jsx'));
+const Reminders = lazy(() => import('./pages/Reminders.jsx'));
+const Progress = lazy(() => import('./pages/Progress.jsx'));
+const Store = lazy(() => import('./pages/Store.jsx'));
+const Product = lazy(() => import('./pages/Product.jsx'));
+const Cart = lazy(() => import('./pages/Cart.jsx'));
+const Checkout = lazy(() => import('./pages/Checkout.jsx'));
+const Profile = lazy(() => import('./pages/Profile.jsx'));
+const About = lazy(() => import('./pages/About.jsx'));
+const Emergency = lazy(() => import('./pages/Emergency.jsx'));
+const Seller = lazy(() => import('./pages/Seller.jsx'));
+const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 
-function MainLayout() {
-  const { currentRoute, authSession } = useApp();
-  const [isQuickLogOpen, setIsQuickLogOpen] = useState(false);
-  const [isNotifsOpen, setIsNotifsOpen] = useState(false);
-
-  // If on public Landing, Auth, or Onboarding screen, show standalone full-width page
-  if (currentRoute === 'landing' || !authSession?.isAuthenticated) {
-    if (currentRoute === 'auth') return <AuthPage />;
-    return <LandingPage />;
-  }
-
-  if (currentRoute === 'onboarding') {
-    return <OnboardingPage />;
-  }
-
-  const renderActivePage = () => {
-    switch (currentRoute) {
-      case 'dashboard':
-        return <DashboardPage />;
-      case 'habits':
-        return <HabitsPage />;
-      case 'health':
-        return <HealthPage />;
-      case 'medications':
-        return <MedicationsPage />;
-      case 'appointments':
-        return <AppointmentsPage />;
-      case 'emergency':
-        return <EmergencyPage />;
-      case 'insights':
-        return <InsightsPage />;
-      case 'profile':
-        return <ProfilePage />;
-      case 'settings':
-        return <SettingsPage />;
-      default:
-        return <DashboardPage />;
-    }
-  };
-
+function Providers({ children }) {
   return (
-    <div className="app-container">
-      {/* Desktop & Tablet Sidebar */}
-      <Sidebar />
-
-      {/* Main Content Area */}
-      <div className="main-content-wrapper">
-        {/* Top Navbar */}
-        <Navbar
-          onOpenQuickLog={() => setIsQuickLogOpen(true)}
-          onOpenNotifications={() => setIsNotifsOpen(true)}
-        />
-
-        {/* Page Container */}
-        <main className="page-container animate-fade-in">
-          {renderActivePage()}
-        </main>
-      </div>
-
-      {/* Mobile Bottom Navigation */}
-      <MobileBottomNav />
-
-      {/* Global Toast Notifications */}
-      <ToastContainer />
-
-      {/* Global Quick Vitals Log Modal */}
-      {isQuickLogOpen && (
-        <QuickLogModal
-          isOpen={isQuickLogOpen}
-          onClose={() => setIsQuickLogOpen(false)}
-        />
-      )}
-
-      {/* Global Notification Drawer */}
-      {isNotifsOpen && (
-        <NotificationDrawer
-          isOpen={isNotifsOpen}
-          onClose={() => setIsNotifsOpen(false)}
-        />
-      )}
-    </div>
+    <ThemeProvider>
+      <I18nProvider>
+        <AuthProvider>
+          <WellnessProvider>
+            <CartProvider>{children}</CartProvider>
+          </WellnessProvider>
+        </AuthProvider>
+      </I18nProvider>
+    </ThemeProvider>
   );
 }
 
 export default function App() {
   return (
-    <AppProvider>
-      <MainLayout />
-    </AppProvider>
+    <Providers>
+      <BrowserRouter>
+        <Suspense fallback={<PageSuspenseFallback />}>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/emergency" element={<Emergency />} />
+              <Route path="/store" element={<Store />} />
+              <Route path="/store/:id" element={<Product />} />
+              <Route path="/seller/:sellerId" element={<Seller />} />
+              <Route path="/cart" element={<Cart />} />
+
+              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/habits" element={<ProtectedRoute><Habits /></ProtectedRoute>} />
+              <Route path="/reminders" element={<ProtectedRoute><Reminders /></ProtectedRoute>} />
+              <Route path="/progress" element={<ProtectedRoute><Progress /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+              <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </Providers>
   );
 }

@@ -1,0 +1,22 @@
+{
+  "greeting": {
+    "morning": "Xayrli tong, {{name}}",
+    "afternoon": "Xayrli kun, {{name}}",
+    "evening": "Xayrli kech, {{name}}"
+  },
+  "subtitle": "Bugungi rejangiz.",
+  "stats": {
+    "water": "Suv",
+    "sleep": "Uyqu",
+    "activity": "Faollik",
+    "tasks": "Vazifalar"
+  },
+  "todaysPlan": {
+    "title": "Bugungi reja",
+    "empty": "Hozircha hech narsa rejalashtirilmagan — eslatma qo‘shing yoki quyida odatni belgilang.",
+    "addReminder": "Eslatma qo‘shish",
+    "waterTask": "Suv me’yoriga yeting",
+    "sleepTask": "Kechagi uyquni belgilang",
+    "workoutTask": "Bugungi mashqni belgilang"
+  }
+}

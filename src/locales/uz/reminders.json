@@ -1,0 +1,23 @@
+{
+  "title": "Eslatmalar",
+  "subtitle": "Oldindan rejalashtiring — bir necha haftaga.",
+  "add": "Yangi eslatma",
+  "empty": "Hozircha eslatmalar yo‘q. Birinchisini qo‘shing.",
+  "form": {
+    "titleAdd": "Yangi eslatma",
+    "titleEdit": "Eslatmani tahrirlash",
+    "name": "Nomi",
+    "namePlaceholder": "masalan, Suv ichish",
+    "time": "Vaqt",
+    "repeat": "Takrorlanish",
+    "days": "Hafta kunlari",
+    "startDate": "Boshlanish sanasi",
+    "endDate": "Tugash sanasi (ixtiyoriy)",
+    "repeatOptions": { "once": "Bir marta", "daily": "Har kuni", "weekly": "Hafta kunlari bo‘yicha" },
+    "dayLabels": { "mon": "Du", "tue": "Se", "wed": "Cho", "thu": "Pa", "fri": "Ju", "sat": "Sha", "sun": "Ya" },
+    "save": "Eslatmani saqlash"
+  },
+  "deleteTitle": "Bu eslatma o‘chirilsinmi?",
+  "deleteMessage": "U kalendar va boshqaruv panelidan o‘chiriladi.",
+  "calendarTitle": "Kalendar"
+}

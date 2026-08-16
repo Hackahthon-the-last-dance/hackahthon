@@ -1,0 +1,41 @@
+{
+  "title": "Odatlar",
+  "subtitle": "Suv, uyqu va mashqlar — eng zaruri narsalar, oddiy tarzda kuzatiladi.",
+  "water": {
+    "title": "Suv",
+    "progress": "{{current}} / {{goal}} l",
+    "add": "+{{amount}} ml",
+    "goalLabel": "Kunlik me’yor (ml)",
+    "saveGoal": "Me’yorni saqlash"
+  },
+  "sleep": {
+    "title": "Uyqu",
+    "bedtime": "Yotish vaqti",
+    "wakeTime": "Uyg‘onish vaqti",
+    "target": "Maqsad (soat)",
+    "hoursSlept": "O‘tgan kecha uxlagan soatlar",
+    "log": "Uyquni belgilash",
+    "weekly": "Shu hafta"
+  },
+  "workout": {
+    "title": "Mashqlar",
+    "add": "Mashqni qayd etish",
+    "type": "Turi",
+    "value": "Qiymat",
+    "unit": "Birlik",
+    "save": "Saqlash",
+    "empty": "Hali mashqlar qayd etilmagan.",
+    "types": {
+      "pushups": "Turnikdan tortilish",
+      "running": "Yugurish",
+      "walking": "Piyoda yurish",
+      "gym": "Sport zali",
+      "stretching": "Cho‘zilish"
+    },
+    "units": {
+      "reps": "marta",
+      "minutes": "daqiqa",
+      "km": "km"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": "About HealthFlow",
+  "subtitle": "A personal wellness assistant built around one idea: simple, useful, every day.",
+  "sections": {
+    "what": {
+      "title": "What HealthFlow is",
+      "body": "HealthFlow is a lightweight companion for everyday wellness — habits, water, sleep, workouts, reminders and a simple shop for the essentials that support them. No clutter, no scores you need a manual to understand."
+    },
+    "problem": {
+      "title": "The problem we solve",
+      "body": "Most habit apps punish broken streaks and bury you in features you never open twice. HealthFlow focuses on the handful of things you actually do every day, and makes those effortless to track and act on."
+    },
+    "simple": {
+      "title": "Why we kept it simple",
+      "body": "Every screen answers one question: what should I do today? Fewer features, done well, beat a long list of half-finished ones."
+    },
+    "habits": {
+      "title": "How it helps you build habits",
+      "body": "A daily plan, gentle reminders, and a weekly view of your progress — so you can see the pattern forming, not just today's checkbox."
+    }
+  },
+  "disclaimer": {
+    "title": "Not a medical diagnosis system",
+    "body": "HealthFlow is a personal wellness assistant, not a medical diagnosis system. It does not replace professional medical advice, diagnosis or treatment. Always consult a qualified healthcare provider about your health."
+  }
+}

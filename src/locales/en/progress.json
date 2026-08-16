@@ -1,0 +1,10 @@
+{
+  "title": "Progress",
+  "subtitle": "Your week at a glance.",
+  "summary": "{{percent}}% of your planned habits completed",
+  "water": "Water",
+  "sleep": "Sleep",
+  "workouts": "Workouts",
+  "tasks": "Tasks",
+  "weeklyOverview": "Weekly overview"
+}

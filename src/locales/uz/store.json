@@ -1,0 +1,19 @@
+{
+  "title": "Do‘kon",
+  "subtitle": "Salomatlik uchun zarur mahsulotlar — yetkazib berish bilan.",
+  "searchPlaceholder": "Mahsulotlarni qidirish",
+  "filters": { "category": "Kategoriya", "allCategories": "Barcha kategoriyalar" },
+  "sort": {
+    "label": "Saralash",
+    "popularity": "Ommabopligi bo‘yicha",
+    "priceAsc": "Avval arzon",
+    "priceDesc": "Avval qimmat",
+    "ratingDesc": "Reyting bo‘yicha"
+  },
+  "empty": "Hozircha mahsulotlar yo‘q.",
+  "errorTitle": "Do‘konni yuklab bo‘lmadi",
+  "errorDescription": "Mahsulotlar katalogiga ulanib bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.",
+  "resultsCount": "{{count}} ta mahsulot",
+  "addToCart": "Savatga qo‘shish",
+  "view": "Ko‘rish"
+}

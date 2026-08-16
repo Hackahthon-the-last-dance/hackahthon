@@ -1,0 +1,7 @@
+{
+  "title": "Store rating",
+  "productsCount": "{{count}} products",
+  "avgRating": "Average rating",
+  "back": "Back to store",
+  "products": "Products from this store"
+}

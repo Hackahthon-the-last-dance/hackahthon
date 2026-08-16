@@ -1,0 +1,18 @@
+{
+  "title": "Checkout",
+  "orderSummary": "Order summary",
+  "form": {
+    "name": "Full name",
+    "address": "Address",
+    "city": "City",
+    "postalCode": "Postal code",
+    "phone": "Phone",
+    "paymentMethod": "Payment method",
+    "paymentOptions": { "card": "Card on delivery", "cash": "Cash on delivery" },
+    "submit": "Place order"
+  },
+  "successTitle": "Order placed",
+  "successDescription": "Order #{{orderId}} has been placed. This is a demo checkout — no real payment was processed.",
+  "continueShopping": "Continue shopping",
+  "emptyCart": "Your cart is empty — add something from the store first."
+}

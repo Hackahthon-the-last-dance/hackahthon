@@ -1,0 +1,28 @@
+{
+  "title": "Profile",
+  "subtitle": "Manage your account and medical ID details.",
+  "sections": {
+    "account": "Account",
+    "medical": "Medical ID",
+    "emergencyContact": "Emergency contact",
+    "preferences": "Preferences"
+  },
+  "fields": {
+    "name": "Full name",
+    "email": "Email",
+    "bloodType": "Blood type",
+    "allergies": "Allergies (comma-separated)",
+    "conditions": "Medical conditions (comma-separated)",
+    "contactName": "Contact name",
+    "contactRelation": "Relation",
+    "contactPhone": "Contact phone"
+  },
+  "theme": "Theme",
+  "language": "Language",
+  "save": "Save changes",
+  "saved": "Profile updated",
+  "errors": {
+    "network": "Couldn’t reach the server. Check your connection and try again.",
+    "generic": "Something went wrong. Please try again."
+  }
+}

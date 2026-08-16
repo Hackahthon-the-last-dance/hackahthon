@@ -1,0 +1,66 @@
+{
+  "title": "Emergency",
+  "subtitle": "Fast access to help when it matters most.",
+  "sos": {
+    "idleTitle": "One-tap emergency alert",
+    "idleDescription": "Notifies your emergency contact with your live location and Medical ID details.",
+    "call911": "Call 911",
+    "callContact": "Call {{name}}",
+    "startButton": "SOS",
+    "startHint": "Tap to start a 5-second emergency countdown",
+    "dispatchingTitle": "Dispatching alert in {{seconds}}s…",
+    "dispatchingDescription": "Broadcasting your location to your emergency contact.",
+    "cancel": "Cancel alert",
+    "activeTitle": "Emergency protocol active",
+    "activeDescription": "Your emergency contact ({{name}}) has been notified with your location and Medical ID.",
+    "standDown": "Stand down / resolve"
+  },
+  "medicalId": {
+    "title": "Medical ID",
+    "subtitle": "Visible to emergency responders",
+    "edit": "Edit ID",
+    "bloodType": "Blood type",
+    "allergies": "Known allergies",
+    "conditions": "Medical conditions",
+    "emergencyContact": "Emergency contact",
+    "callContact": "Call contact",
+    "notSet": "Not set — add in Profile",
+    "noneListed": "None listed"
+  },
+  "map": {
+    "searchPlaceholder": "Search clinic name, service or address…",
+    "locate": "Locate nearest",
+    "locating": "Locating…",
+    "locationActive": "Location active",
+    "categories": {
+      "all": "All facilities",
+      "emergency": "24/7 emergency & ER",
+      "hospital": "Hospitals",
+      "primary_care": "Primary care",
+      "urgent_care": "Urgent care",
+      "pharmacy": "Pharmacies",
+      "specialist": "Specialists"
+    },
+    "nearbyCount": "Nearby facilities ({{count}})",
+    "noResults": "No clinics match your filters",
+    "clearFilters": "Clear filters",
+    "directions": "Directions",
+    "call": "Call"
+  },
+  "locationPrompt": {
+    "title": "Find nearby help",
+    "description": "Allow HealthFlow to use your device location to show distance to the nearest open facilities.",
+    "allow": "Allow location",
+    "searchManually": "Search manually",
+    "deniedTitle": "Location access unavailable",
+    "deniedDescription": "Showing standard facility list. Search manually below."
+  },
+  "directions": {
+    "titlePrefix": "Directions to",
+    "openInMaps": "Open in Google Maps",
+    "call": "Call",
+    "drive": "Drive",
+    "transit": "Transit",
+    "walk": "Walk"
+  }
+}

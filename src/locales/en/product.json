@@ -1,0 +1,15 @@
+{
+  "backToStore": "Back to store",
+  "description": "Description",
+  "specifications": "Specifications",
+  "reviewsTitle": "Reviews",
+  "addToCart": "Add to cart",
+  "addedToCart": "Added to cart",
+  "quantity": "Quantity",
+  "seller": "Sold by",
+  "viewSeller": "View store",
+  "noSpecifications": "No specifications provided.",
+  "notFoundTitle": "Product not found",
+  "notFoundDescription": "This product may have been removed or is no longer available.",
+  "errorTitle": "Couldn’t load this product"
+}

@@ -1,0 +1,26 @@
+{
+  "title": "HealthFlow haqida",
+  "subtitle": "Bitta g‘oya atrofida qurilgan shaxsiy salomatlik yordamchisi: oddiy, foydali, har kuni.",
+  "sections": {
+    "what": {
+      "title": "HealthFlow nima",
+      "body": "HealthFlow — kundalik salomatlik uchun yengil yordamchi: odatlar, suv, uyqu, mashqlar, eslatmalar va zarur mahsulotlar uchun oddiy do‘kon. Ortiqcha funksiyalar va tushunish uchun qo‘llanma kerak bo‘ladigan ballar yo‘q."
+    },
+    "problem": {
+      "title": "Biz qanday muammoni hal qilamiz",
+      "body": "Ko‘pchilik odat ilovalari uzilgan seriyalar uchun jazolaydi va siz ikki marta ham ochmaydigan funksiyalar bilan to‘ldiradi. HealthFlow siz har kuni haqiqatan qiladigan bir nechta narsaga e’tibor qaratadi va ularni kuzatishni oson qiladi."
+    },
+    "simple": {
+      "title": "Nega uni oddiy qildik",
+      "body": "Har bir ekran bitta savolga javob beradi: bugun nima qilishim kerak? Kam, ammo yaxshi ishlangan funksiyalar yarim tugallangan uzun ro‘yxatdan yaxshiroq."
+    },
+    "habits": {
+      "title": "Bu odat shakllantirishga qanday yordam beradi",
+      "body": "Kunlik reja, yumshoq eslatmalar va haftalik natijalar ko‘rinishi — shunda siz faqat bugungi belgini emas, shakllanayotgan tartibni ko‘rasiz."
+    }
+  },
+  "disclaimer": {
+    "title": "Tibbiy tashxis tizimi emas",
+    "body": "HealthFlow — shaxsiy salomatlik yordamchisi, tibbiy tashxis tizimi emas. U professional tibbiy maslahat, tashxis yoki davolashning o‘rnini bosmaydi. Salomatligingiz bo‘yicha doim malakali shifokor bilan maslahatlashing."
+  }
+}

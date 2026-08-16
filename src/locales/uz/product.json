@@ -1,0 +1,15 @@
+{
+  "backToStore": "Do‘konga qaytish",
+  "description": "Tavsif",
+  "specifications": "Xususiyatlari",
+  "reviewsTitle": "Sharhlar",
+  "addToCart": "Savatga qo‘shish",
+  "addedToCart": "Savatga qo‘shildi",
+  "quantity": "Miqdori",
+  "seller": "Sotuvchi",
+  "viewSeller": "Do‘konni ko‘rish",
+  "noSpecifications": "Xususiyatlari ko‘rsatilmagan.",
+  "notFoundTitle": "Mahsulot topilmadi",
+  "notFoundDescription": "Bu mahsulot o‘chirilgan yoki endi mavjud emas bo‘lishi mumkin.",
+  "errorTitle": "Mahsulotni yuklab bo‘lmadi"
+}

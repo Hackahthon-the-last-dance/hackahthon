@@ -1,0 +1,28 @@
+{
+  "title": "Profil",
+  "subtitle": "Akkountingiz va Medical ID ma’lumotlarini boshqaring.",
+  "sections": {
+    "account": "Akkount",
+    "medical": "Medical ID",
+    "emergencyContact": "Shoshilinch kontakt",
+    "preferences": "Sozlamalar"
+  },
+  "fields": {
+    "name": "To‘liq ism",
+    "email": "Email",
+    "bloodType": "Qon guruhi",
+    "allergies": "Allergiyalar (vergul bilan)",
+    "conditions": "Tibbiy holatlar (vergul bilan)",
+    "contactName": "Kontakt ismi",
+    "contactRelation": "Kim bo‘ladi",
+    "contactPhone": "Kontakt telefoni"
+  },
+  "theme": "Mavzu",
+  "language": "Til",
+  "save": "Saqlash",
+  "saved": "Profil yangilandi",
+  "errors": {
+    "network": "Serverga ulanib bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.",
+    "generic": "Nimadir xato ketdi. Qayta urinib ko‘ring."
+  }
+}

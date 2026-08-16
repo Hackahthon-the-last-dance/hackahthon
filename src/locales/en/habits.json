@@ -1,0 +1,41 @@
+{
+  "title": "Habits",
+  "subtitle": "Water, sleep and workouts — the essentials, tracked simply.",
+  "water": {
+    "title": "Water",
+    "progress": "{{current}} / {{goal}} L",
+    "add": "+{{amount}} ml",
+    "goalLabel": "Daily goal (ml)",
+    "saveGoal": "Save goal"
+  },
+  "sleep": {
+    "title": "Sleep",
+    "bedtime": "Bedtime",
+    "wakeTime": "Wake time",
+    "target": "Target (hours)",
+    "hoursSlept": "Hours slept last night",
+    "log": "Log sleep",
+    "weekly": "This week"
+  },
+  "workout": {
+    "title": "Workout",
+    "add": "Log workout",
+    "type": "Type",
+    "value": "Amount",
+    "unit": "Unit",
+    "save": "Save entry",
+    "empty": "No workouts logged yet.",
+    "types": {
+      "pushups": "Push-ups",
+      "running": "Running",
+      "walking": "Walking",
+      "gym": "Gym",
+      "stretching": "Stretching"
+    },
+    "units": {
+      "reps": "reps",
+      "minutes": "min",
+      "km": "km"
+    }
+  }
+}

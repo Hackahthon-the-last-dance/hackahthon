@@ -1,0 +1,15 @@
+{
+  "backToStore": "Назад в магазин",
+  "description": "Описание",
+  "specifications": "Характеристики",
+  "reviewsTitle": "Отзывы",
+  "addToCart": "В корзину",
+  "addedToCart": "Добавлено в корзину",
+  "quantity": "Количество",
+  "seller": "Продавец",
+  "viewSeller": "Магазин продавца",
+  "noSpecifications": "Характеристики не указаны.",
+  "notFoundTitle": "Товар не найден",
+  "notFoundDescription": "Возможно, этот товар был удалён или больше недоступен.",
+  "errorTitle": "Не удалось загрузить товар"
+}

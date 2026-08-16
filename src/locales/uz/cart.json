@@ -1,0 +1,9 @@
+{
+  "title": "Savat",
+  "empty": "Savatingiz bo‘sh.",
+  "browseStore": "Do‘konga o‘tish",
+  "subtotal": "Jami",
+  "checkout": "Buyurtma berish",
+  "remove": "O‘chirish",
+  "itemsCount": "{{count}} ta mahsulot"
+}

@@ -1,399 +1,196 @@
-// Top Navigation Bar with Search, Quick Log Action, Notifications, Theme Switcher, and User Profile Menu
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  Activity,
-  Search,
-  Plus,
-  Bell,
-  Sun,
-  Moon,
-  User,
-  Settings,
-  LogOut,
-  RefreshCw,
-  Sparkles,
-  ShieldAlert,
-  ChevronDown,
-} from 'lucide-react';
-import { useApp } from '../../context/AppContext';
-import Button from '../common/Button';
-import ImageWithFallback from '../common/ImageWithFallback';
-import { IMAGES } from '../../constants/images';
+import { useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { HeartPulse, Menu, X, ShoppingCart, LogOut, User as UserIcon } from 'lucide-react';
+import { useTranslation } from '../../context/I18nContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
+import { useCart } from '../../context/CartContext.jsx';
+import ThemeSwitcher from '../shared/ThemeSwitcher.jsx';
+import LanguageSwitcher from '../shared/LanguageSwitcher.jsx';
 
-export default function Navbar({ onOpenQuickLog, onOpenNotifications }) {
-  const {
-    currentRoute,
-    setCurrentRoute,
-    theme,
-    toggleTheme,
-    user,
-    logout,
-    resetEntireApplication,
-    habits,
-    medications,
-    appointments,
-    addToast,
-  } = useApp();
+const PUBLIC_LINKS = [
+  { to: '/', key: 'home' },
+  { to: '/store', key: 'store' },
+  { to: '/about', key: 'about' },
+  { to: '/emergency', key: 'emergency' },
+];
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const profileMenuRef = useRef(null);
+const AUTHED_LINKS = [
+  { to: '/dashboard', key: 'dashboard' },
+  { to: '/habits', key: 'habits' },
+  { to: '/reminders', key: 'reminders' },
+  { to: '/progress', key: 'progress' },
+  { to: '/store', key: 'store' },
+  { to: '/emergency', key: 'emergency' },
+];
 
-  // Close profile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (profileMenuRef.current && !profileMenuRef.current.contains(e.target)) {
-        setIsProfileMenuOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+function navLinkClass({ isActive }) {
+  return `rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
+    isActive ? 'bg-primary-soft text-primary' : 'text-text-secondary hover:bg-hover hover:text-text'
+  }`;
+}
 
-  // Filter search results across habits, medications, and appointments
-  const searchResults = React.useMemo(() => {
-    if (!searchQuery.trim()) return [];
-    const query = searchQuery.toLowerCase();
+export default function Navbar() {
+  const { t } = useTranslation();
+  const { isAuthenticated, logout } = useAuth();
+  const { itemCount } = useCart();
+  const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-    const matchedHabits = habits
-      .filter((h) => h.title.toLowerCase().includes(query) || h.category.toLowerCase().includes(query))
-      .map((h) => ({ type: 'Habit', title: h.title, route: 'habits', icon: Activity }));
+  const links = isAuthenticated ? AUTHED_LINKS : PUBLIC_LINKS;
 
-    const matchedMeds = medications
-      .filter((m) => m.name.toLowerCase().includes(query) || m.prescribedFor.toLowerCase().includes(query))
-      .map((m) => ({ type: 'Medication', title: m.name, route: 'medications', icon: Activity }));
-
-    const matchedApts = appointments
-      .filter((a) => a.doctorName.toLowerCase().includes(query) || a.specialty.toLowerCase().includes(query))
-      .map((a) => ({ type: 'Appointment', title: `${a.doctorName} (${a.specialty})`, route: 'appointments', icon: Activity }));
-
-    return [...matchedHabits, ...matchedMeds, ...matchedApts].slice(0, 6);
-  }, [searchQuery, habits, medications, appointments]);
-
-  const handleSelectSearchResult = (result) => {
-    setCurrentRoute(result.route);
-    setSearchQuery('');
-    setIsSearchOpen(false);
-    addToast(`Navigated to ${result.type}: ${result.title}`, 'info');
+  const handleLogout = () => {
+    logout();
+    setMobileOpen(false);
+    navigate('/');
   };
 
   return (
-    <header
-      style={{
-        height: 'var(--header-height)',
-        backgroundColor: 'var(--bg-surface)',
-        borderBottom: '1px solid var(--border-subtle)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 24px',
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-      }}
-    >
-      {/* Left: Mobile Brand & Global Search */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, maxWidth: '480px' }}>
-        <button
-          onClick={() => setCurrentRoute('dashboard')}
-          style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
-          className="mobile-brand-link"
-        >
-          <div
-            style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: 'var(--radius-md)',
-              backgroundColor: 'var(--primary)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff',
-            }}
-          >
-            <Activity size={20} />
-          </div>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.25rem', color: 'var(--text-primary)' }}>
-            Health<span style={{ color: 'var(--primary)' }}>Flow</span>
+    <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
+      <div className="mx-auto flex h-[68px] max-w-[1360px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex shrink-0 items-center gap-2 text-text" onClick={() => setMobileOpen(false)}>
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl gradient-brand text-white">
+            <HeartPulse size={18} strokeWidth={2.5} />
           </span>
-        </button>
+          <span className="font-display text-lg font-extrabold">{t('common.brand')}</span>
+        </Link>
 
-        {/* Search Bar with Autocomplete Dropdown */}
-        <div style={{ position: 'relative', flex: 1 }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              backgroundColor: 'var(--bg-input)',
-              borderRadius: 'var(--radius-full)',
-              padding: '8px 16px',
-              border: '1px solid var(--border-input)',
-            }}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {links.map((link) => (
+            <NavLink key={link.to} to={link.to} className={navLinkClass} end={link.to === '/'}>
+              {t(`common.nav.${link.key}`)}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-2 lg:flex">
+          <Link
+            to="/cart"
+            aria-label={t('common.nav.cart')}
+            className="relative flex h-9 w-9 items-center justify-center rounded-full text-text-secondary transition-colors duration-150 hover:bg-hover hover:text-text"
           >
-            <Search size={16} color="var(--text-muted)" />
-            <input
-              type="text"
-              placeholder="Search habits, meds, doctors..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setIsSearchOpen(true);
-              }}
-              onFocus={() => setIsSearchOpen(true)}
-              style={{
-                background: 'transparent',
-                border: 'none',
-                outline: 'none',
-                width: '100%',
-                fontSize: '0.875rem',
-                color: 'var(--text-primary)',
-              }}
-            />
-          </div>
+            <ShoppingCart size={18} />
+            {itemCount > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-text-inverse">
+                {itemCount}
+              </span>
+            )}
+          </Link>
+          <ThemeSwitcher />
+          <LanguageSwitcher />
 
-          {/* Search Dropdown Results */}
-          {isSearchOpen && searchResults.length > 0 && (
-            <div
-              style={{
-                position: 'absolute',
-                top: 'calc(100% + 8px)',
-                left: 0,
-                right: 0,
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-card)',
-                borderRadius: 'var(--radius-md)',
-                boxShadow: 'var(--shadow-xl)',
-                overflow: 'hidden',
-                zIndex: 100,
-              }}
-              className="animate-slide-up"
-            >
-              <div style={{ padding: '8px 12px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', borderBottom: '1px solid var(--border-subtle)' }}>
-                SEARCH RESULTS ({searchResults.length})
-              </div>
-              {searchResults.map((res, i) => (
-                <button
-                  key={i}
-                  onClick={() => handleSelectSearchResult(res)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    padding: '10px 14px',
-                    textAlign: 'left',
-                    borderBottom: i === searchResults.length - 1 ? 'none' : '1px solid var(--border-subtle)',
-                    transition: 'background var(--trans-fast)',
-                  }}
-                  className="search-item-hover"
-                >
-                  <span style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-primary)' }}>{res.title}</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>{res.type}</span>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Right Controls: Quick Log, Notifications, Theme, Profile */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        {/* Quick Log Action CTA */}
-        <Button
-          variant="primary"
-          size="sm"
-          icon={Plus}
-          onClick={onOpenQuickLog}
-          style={{ borderRadius: 'var(--radius-full)' }}
-        >
-          <span className="hide-on-mobile">Quick Log</span>
-        </Button>
-
-        {/* Notifications Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onOpenNotifications}
-          ariaLabel="Notifications"
-          style={{ position: 'relative' }}
-        >
-          <Bell size={19} />
-          <span
-            style={{
-              position: 'absolute',
-              top: '8px',
-              right: '8px',
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--accent-rose)',
-            }}
-          />
-        </Button>
-
-        {/* Theme Toggle (Light / Dark) */}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={toggleTheme}
-          ariaLabel={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        >
-          {theme === 'dark' ? <Sun size={19} color="#fbbf24" /> : <Moon size={19} />}
-        </Button>
-
-        {/* User Profile Avatar Dropdown */}
-        <div style={{ position: 'relative' }} ref={profileMenuRef}>
-          <button
-            onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '4px 8px 4px 4px',
-              borderRadius: 'var(--radius-full)',
-              backgroundColor: 'var(--bg-hover)',
-              border: '1px solid var(--border-subtle)',
-              cursor: 'pointer',
-            }}
-            aria-expanded={isProfileMenuOpen}
-            aria-label="User account menu"
-          >
-            <div style={{ width: '32px', height: '32px', borderRadius: '50%', overflow: 'hidden' }}>
-              <ImageWithFallback
-                src={user?.avatar || IMAGES.avatars.firdavs}
-                fallbackSrc={IMAGES.fallbackAvatar}
-                alt={user?.name || 'User Avatar'}
-                style={{ width: '100%', height: '100%' }}
-              />
-            </div>
-            <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)' }} className="hide-on-mobile">
-              {user?.firstName || 'Firdavs'}
-            </span>
-            <ChevronDown size={14} color="var(--text-muted)" />
-          </button>
-
-          {/* Profile Dropdown */}
-          {isProfileMenuOpen && (
-            <div
-              style={{
-                position: 'absolute',
-                top: 'calc(100% + 8px)',
-                right: 0,
-                width: '230px',
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-card)',
-                borderRadius: 'var(--radius-lg)',
-                boxShadow: 'var(--shadow-xl)',
-                padding: '8px',
-                zIndex: 100,
-              }}
-              className="animate-scale-in"
-            >
-              <div style={{ padding: '8px 12px', borderBottom: '1px solid var(--border-subtle)', marginBottom: '6px' }}>
-                <p style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
-                  {user?.name || 'Firdavs Abdurazzakov'}
-                </p>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                  {user?.email || 'firdavs@healthflow.app'}
-                </p>
-              </div>
-
-              <button
-                onClick={() => {
-                  setCurrentRoute('profile');
-                  setIsProfileMenuOpen(false);
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  width: '100%',
-                  padding: '9px 12px',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.875rem',
-                  color: 'var(--text-primary)',
-                  textAlign: 'left',
-                }}
-                className="menu-item-hover"
+          {isAuthenticated ? (
+            <div className="ml-1 flex items-center gap-2">
+              <Link
+                to="/profile"
+                aria-label={t('common.nav.profile')}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface-muted text-text-secondary transition-colors duration-150 hover:bg-hover"
               >
-                <User size={16} />
-                <span>My Health Profile</span>
-              </button>
-
+                <UserIcon size={16} />
+              </Link>
               <button
-                onClick={() => {
-                  setCurrentRoute('settings');
-                  setIsProfileMenuOpen(false);
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  width: '100%',
-                  padding: '9px 12px',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.875rem',
-                  color: 'var(--text-primary)',
-                  textAlign: 'left',
-                }}
-                className="menu-item-hover"
-              >
-                <Settings size={16} />
-                <span>Preferences & Settings</span>
-              </button>
-
-              <button
-                onClick={() => {
-                  resetEntireApplication();
-                  setIsProfileMenuOpen(false);
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  width: '100%',
-                  padding: '9px 12px',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.875rem',
-                  color: 'var(--accent-amber)',
-                  textAlign: 'left',
-                }}
-                className="menu-item-hover"
-              >
-                <RefreshCw size={16} />
-                <span>Reset Demo State</span>
-              </button>
-
-              <div style={{ height: '1px', backgroundColor: 'var(--border-subtle)', margin: '6px 0' }} />
-
-              <button
-                onClick={() => {
-                  setIsProfileMenuOpen(false);
-                  logout();
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  width: '100%',
-                  padding: '9px 12px',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.875rem',
-                  color: 'var(--accent-rose)',
-                  textAlign: 'left',
-                }}
-                className="menu-item-hover"
+                type="button"
+                onClick={handleLogout}
+                className="flex h-9 w-9 items-center justify-center rounded-full text-text-secondary transition-colors duration-150 hover:bg-hover hover:text-danger"
+                aria-label={t('common.nav.logout')}
+                title={t('common.nav.logout')}
               >
                 <LogOut size={16} />
-                <span>Sign Out</span>
               </button>
+            </div>
+          ) : (
+            <div className="ml-1 flex items-center gap-2">
+              <Link to="/login" className="rounded-full px-3 py-2 text-sm font-semibold text-text-secondary hover:text-text">
+                {t('common.nav.login')}
+              </Link>
+              <Link
+                to="/register"
+                className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-text-inverse shadow-sm hover:bg-primary-hover"
+              >
+                {t('common.nav.register')}
+              </Link>
             </div>
           )}
         </div>
+
+        <button
+          type="button"
+          className="flex h-10 w-10 items-center justify-center rounded-full text-text lg:hidden"
+          aria-label={t('common.nav.menu')}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((v) => !v)}
+        >
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+
+      {mobileOpen && (
+        <div className="animate-slide-up border-t border-border bg-surface px-4 pb-6 pt-2 lg:hidden">
+          <nav className="flex flex-col gap-1">
+            {links.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                onClick={() => setMobileOpen(false)}
+                className={({ isActive }) =>
+                  `rounded-lg px-3 py-2.5 text-sm font-semibold ${
+                    isActive ? 'bg-primary-soft text-primary' : 'text-text-secondary hover:bg-hover'
+                  }`
+                }
+              >
+                {t(`common.nav.${link.key}`)}
+              </NavLink>
+            ))}
+            <Link
+              to="/cart"
+              onClick={() => setMobileOpen(false)}
+              className="rounded-lg px-3 py-2.5 text-sm font-semibold text-text-secondary hover:bg-hover"
+            >
+              {t('common.nav.cart')}
+            </Link>
+            {isAuthenticated ? (
+              <>
+                <Link
+                  to="/profile"
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-semibold text-text-secondary hover:bg-hover"
+                >
+                  {t('common.nav.profile')}
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="rounded-lg px-3 py-2.5 text-left text-sm font-semibold text-danger hover:bg-hover"
+                >
+                  {t('common.nav.logout')}
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-semibold text-text-secondary hover:bg-hover"
+                >
+                  {t('common.nav.login')}
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-semibold text-text-inverse"
+                >
+                  {t('common.nav.register')}
+                </Link>
+              </>
+            )}
+          </nav>
+
+          <div className="mt-4 flex items-center gap-2 border-t border-border pt-4">
+            <ThemeSwitcher />
+            <LanguageSwitcher />
+          </div>
+        </div>
+      )}
     </header>
   );
 }

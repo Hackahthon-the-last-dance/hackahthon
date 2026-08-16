@@ -1,0 +1,9 @@
+{
+  "empty": "No reviews yet. Be the first to write one.",
+  "addTitle": "Write a review",
+  "rating": "Rating",
+  "comment": "Comment",
+  "commentPlaceholder": "Share your experience…",
+  "submit": "Submit review",
+  "authorFallback": "Anonymous"
+}

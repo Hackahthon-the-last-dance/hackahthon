@@ -1,0 +1,63 @@
+{
+  "brand": "HealthFlow",
+  "nav": {
+    "home": "Bosh sahifa",
+    "dashboard": "Boshqaruv paneli",
+    "habits": "Odatlar",
+    "reminders": "Eslatmalar",
+    "progress": "Natijalar",
+    "store": "Do‘kon",
+    "cart": "Savat",
+    "profile": "Profil",
+    "about": "Biz haqimizda",
+    "emergency": "Shoshilinch yordam",
+    "login": "Kirish",
+    "register": "Boshlash",
+    "logout": "Chiqish",
+    "menu": "Menyu"
+  },
+  "actions": {
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "retry": "Qayta urinish",
+    "close": "Yopish",
+    "edit": "Tahrirlash",
+    "delete": "O‘chirish",
+    "add": "Qo‘shish",
+    "confirm": "Tasdiqlash",
+    "back": "Orqaga",
+    "goHome": "Bosh sahifaga qaytish",
+    "next": "Keyingisi",
+    "submit": "Yuborish",
+    "search": "Qidiruv",
+    "filters": "Filtrlar",
+    "sort": "Saralash",
+    "loadMore": "Ko‘proq ko‘rsatish",
+    "viewAll": "Barchasini ko‘rish",
+    "learnMore": "Batafsil"
+  },
+  "states": {
+    "loading": "Yuklanmoqda…",
+    "empty": "Bu yerda hali hech narsa yo‘q",
+    "error": "Nimadir xato ketdi",
+    "success": "Bajarildi",
+    "disabled": "Mavjud emas",
+    "completed": "Bajarilgan"
+  },
+  "theme": {
+    "light": "Yorug‘",
+    "dark": "Qorong‘i",
+    "system": "Tizim",
+    "toggle": "Mavzuni almashtirish"
+  },
+  "language": {
+    "label": "Til",
+    "ru": "Русский",
+    "en": "English",
+    "uz": "O‘zbekcha"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "description": "Siz izlagan sahifa mavjud emas yoki boshqa manzilga ko‘chirilgan."
+  }
+}

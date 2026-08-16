@@ -1,0 +1,23 @@
+{
+  "title": "Reminders",
+  "subtitle": "Plan ahead — up to a few weeks at a time.",
+  "add": "New reminder",
+  "empty": "No reminders yet. Add your first one.",
+  "form": {
+    "titleAdd": "New reminder",
+    "titleEdit": "Edit reminder",
+    "name": "Name",
+    "namePlaceholder": "e.g. Drink water",
+    "time": "Time",
+    "repeat": "Repeat",
+    "days": "Days of week",
+    "startDate": "Start date",
+    "endDate": "End date (optional)",
+    "repeatOptions": { "once": "Once", "daily": "Daily", "weekly": "Weekly" },
+    "dayLabels": { "mon": "Mon", "tue": "Tue", "wed": "Wed", "thu": "Thu", "fri": "Fri", "sat": "Sat", "sun": "Sun" },
+    "save": "Save reminder"
+  },
+  "deleteTitle": "Delete this reminder?",
+  "deleteMessage": "It will be removed from your calendar and dashboard.",
+  "calendarTitle": "Calendar"
+}

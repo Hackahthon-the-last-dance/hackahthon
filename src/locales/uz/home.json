@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "eyebrow": "Oddiy. Foydali. Har kuni.",
+    "title": "O‘zingizga har kuni g‘amxo‘rlik qiling.",
+    "subtitle": "Odatlaringizni kuzating, kuningizni rejalashtiring, faol bo‘ling va salomatligingizga oid barcha narsani bitta oddiy joyda saqlang.",
+    "getStarted": "Boshlash",
+    "exploreStore": "Do‘konni ko‘rish"
+  },
+  "preview": {
+    "title": "Barchasi bir joyda",
+    "water": { "label": "Suv", "hint": "Kunlik suv iste’molini kuzating" },
+    "sleep": { "label": "Uyqu", "hint": "Sog‘lom tartib shakllantiring" },
+    "workout": { "label": "Mashqlar", "hint": "Faoliyatingizni qayd eting" },
+    "medication": { "label": "Dorilar", "hint": "Qabul qilishni unutmang" },
+    "tasks": { "label": "Bugungi vazifalar", "hint": "Kun uchun aniq reja" }
+  }
+}

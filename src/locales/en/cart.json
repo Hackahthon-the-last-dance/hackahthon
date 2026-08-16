@@ -1,0 +1,9 @@
+{
+  "title": "Cart",
+  "empty": "Your cart is empty.",
+  "browseStore": "Browse the store",
+  "subtotal": "Subtotal",
+  "checkout": "Proceed to checkout",
+  "remove": "Remove",
+  "itemsCount": "{{count}} items"
+}

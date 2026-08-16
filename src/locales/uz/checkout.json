@@ -1,0 +1,18 @@
+{
+  "title": "Buyurtmani rasmiylashtirish",
+  "orderSummary": "Buyurtma tarkibi",
+  "form": {
+    "name": "To‘liq ism",
+    "address": "Manzil",
+    "city": "Shahar",
+    "postalCode": "Pochta indeksi",
+    "phone": "Telefon",
+    "paymentMethod": "To‘lov usuli",
+    "paymentOptions": { "card": "Yetkazib berishda karta orqali", "cash": "Yetkazib berishda naqd" },
+    "submit": "Buyurtma berish"
+  },
+  "successTitle": "Buyurtma qabul qilindi",
+  "successDescription": "№{{orderId}} buyurtma qabul qilindi. Bu demo rasmiylashtirish — haqiqiy to‘lov amalga oshirilmadi.",
+  "continueShopping": "Xaridni davom ettirish",
+  "emptyCart": "Savatingiz bo‘sh — avval do‘kondan biror narsa qo‘shing."
+}

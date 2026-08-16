@@ -1,0 +1,66 @@
+{
+  "title": "Shoshilinch yordam",
+  "subtitle": "Eng zarur paytda yordamga tezkor kirish.",
+  "sos": {
+    "idleTitle": "Bir bosishda shoshilinch signal",
+    "idleDescription": "Shoshilinch kontaktingizga joriy joylashuvingiz va Medical ID ma’lumotlarini yuboradi.",
+    "call911": "911 ga qo‘ng‘iroq",
+    "callContact": "{{name}} ga qo‘ng‘iroq",
+    "startButton": "SOS",
+    "startHint": "5 soniyalik teskari sanoqni boshlash uchun bosing",
+    "dispatchingTitle": "Signal {{seconds}}s ichida yuborilmoqda…",
+    "dispatchingDescription": "Joylashuvingiz shoshilinch kontaktingizga uzatilmoqda.",
+    "cancel": "Signalni bekor qilish",
+    "activeTitle": "Shoshilinch protokol faol",
+    "activeDescription": "Shoshilinch kontaktingiz ({{name}}) joylashuvingiz va Medical ID haqida xabardor qilindi.",
+    "standDown": "Bekor qilish / yakunlash"
+  },
+  "medicalId": {
+    "title": "Medical ID",
+    "subtitle": "Shoshilinch yordam xodimlariga ko‘rinadi",
+    "edit": "Tahrirlash",
+    "bloodType": "Qon guruhi",
+    "allergies": "Ma’lum allergiyalar",
+    "conditions": "Tibbiy holatlar",
+    "emergencyContact": "Shoshilinch kontakt",
+    "callContact": "Kontaktga qo‘ng‘iroq",
+    "notSet": "Kiritilmagan — Profilda qo‘shing",
+    "noneListed": "Kiritilmagan"
+  },
+  "map": {
+    "searchPlaceholder": "Klinika, xizmat yoki manzil bo‘yicha qidirish…",
+    "locate": "Eng yaqinini topish",
+    "locating": "Joylashuv aniqlanmoqda…",
+    "locationActive": "Joylashuv faol",
+    "categories": {
+      "all": "Barcha muassasalar",
+      "emergency": "24/7 shoshilinch yordam",
+      "hospital": "Kasalxonalar",
+      "primary_care": "Terapiya",
+      "urgent_care": "Tezkor yordam",
+      "pharmacy": "Dorixonalar",
+      "specialist": "Mutaxassislar"
+    },
+    "nearbyCount": "Yaqin atrofda ({{count}})",
+    "noResults": "Filtrlaringizga mos klinika topilmadi",
+    "clearFilters": "Filtrlarni tozalash",
+    "directions": "Yo‘nalish",
+    "call": "Qo‘ng‘iroq"
+  },
+  "locationPrompt": {
+    "title": "Yaqin atrofdan yordam topish",
+    "description": "HealthFlow’ga eng yaqin ochiq muassasalargacha bo‘lgan masofani ko‘rsatish uchun qurilma joylashuvidan foydalanishga ruxsat bering.",
+    "allow": "Joylashuvga ruxsat berish",
+    "searchManually": "Qo‘lda qidirish",
+    "deniedTitle": "Joylashuvga kirish mavjud emas",
+    "deniedDescription": "Standart muassasalar ro‘yxati ko‘rsatilmoqda. Quyida qo‘lda qidiring."
+  },
+  "directions": {
+    "titlePrefix": "Yo‘nalish:",
+    "openInMaps": "Google Xaritada ochish",
+    "call": "Qo‘ng‘iroq",
+    "drive": "Avtomobilda",
+    "transit": "Transportda",
+    "walk": "Piyoda"
+  }
+}
