@@ -1,0 +1,47 @@
+{
+  "title": "Sog‘liq vositalari",
+  "subtitle": "Tanangiz va kunlik ehtiyojlaringizni yaxshiroq tushunish uchun tezkor kalkulyatorlar.",
+  "calculate": "Hisoblash",
+  "age": "Yosh",
+  "height": "Bo‘y",
+  "weight": "Og‘irlik",
+  "male": "Erkak",
+  "female": "Ayol",
+  "bmi": {
+    "title": "BMI kalkulyatori",
+    "hint": "Tana massasi indeksi",
+    "gender": "Jins",
+    "category": "Kategoriya",
+    "levels": {
+      "underweight": "Kam vazn",
+      "normal": "Normal vazn",
+      "overweight": "Ortiqcha vazn",
+      "obese": "Semizlik"
+    },
+    "note": "BMI — skrining vositasi, tashxis emas. Muskullari kuchli sportchilarda ko‘rsatkich sog‘liqqa zararsiz yuqori bo‘lishi mumkin."
+  },
+  "water": {
+    "title": "Kunlik suv normasi",
+    "hint": "Shaxsiy suv iste’mol normasi",
+    "activity": "Faollik darajasi",
+    "low": "Kam harakat (yengil mashqlar)",
+    "medium": "O‘rtacha (haftasiga 3–5 mashq)",
+    "high": "Faol (har kuni mashq)",
+    "daily": "Kuniga tavsiya etiladi",
+    "note": "Bu og‘irlik va faollikka asoslangan boshlang‘ich baho. Issiq havoda yoki jadal mashqlarda ko‘proq iching."
+  },
+  "calories": {
+    "title": "Kunlik kaloriya normasi",
+    "hint": "Mifflin-Sent Jeor usuli",
+    "activity": "Faollik darajasi",
+    "levels": {
+      "sedentary": "O‘tirib ishlash (ofis)",
+      "light": "Yengil (haftasiga 1–3 mashq)",
+      "moderate": "O‘rtacha (haftasiga 3–5 mashq)",
+      "active": "Faol (haftasiga 6–7 mashq)",
+      "veryActive": "Juda faol (jismoniy mehnat)"
+    },
+    "daily": "kka/kun vaznni saqlash uchun",
+    "note": "Natijalar taxminiydir. Ovqatlanishda jiddiy o‘zgarishlardan oldin shifokor bilan maslahatlashing."
+  }
+}

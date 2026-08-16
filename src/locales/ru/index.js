@@ -15,6 +15,7 @@ import seller from './seller.json';
 import emergency from './emergency.json';
 import profile from './profile.json';
 import assistant from './assistant.json';
+import tools from './tools.json';
 
 export default {
   common,
@@ -34,4 +35,5 @@ export default {
   emergency,
   profile,
   assistant,
+  tools,
 };

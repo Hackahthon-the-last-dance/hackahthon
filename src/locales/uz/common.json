@@ -7,6 +7,7 @@
     "reminders": "Eslatmalar",
     "progress": "Natijalar",
     "store": "Do‘kon",
+    "tools": "Vositalar",
     "cart": "Savat",
     "profile": "Profil",
     "about": "Biz haqimizda",
@@ -34,7 +35,8 @@
     "sort": "Saralash",
     "loadMore": "Ko‘proq ko‘rsatish",
     "viewAll": "Barchasini ko‘rish",
-    "learnMore": "Batafsil"
+    "learnMore": "Batafsil",
+    "hide": "Natijani yashirish"
   },
   "states": {
     "loading": "Yuklanmoqda…",
@@ -59,5 +61,18 @@
   "notFound": {
     "title": "Sahifa topilmadi",
     "description": "Siz izlagan sahifa mavjud emas yoki boshqa manzilga ko‘chirilgan."
+  },
+  "footer": {
+    "tagline": "Sog‘lomlik uchun har tomonlama yordamchingiz — odatlar, eslatmalar, do‘kon va shoshilinch yordam bitta joyda.",
+    "trustBadge": "12 000+ foydalanuvchi ishonadi",
+    "productsTitle": "Mahsulotlar",
+    "resourcesTitle": "Resurslar",
+    "contactTitle": "Aloqa",
+    "address": "450 Sutter Health Way, San-Fransisko, AQSH",
+    "phone": "+1 (555) 000-9111",
+    "email": "hello@healthflow.app",
+    "rights": "Barcha huquqlar himoyalangan.",
+    "legal": "Huquqiy ma’lumot",
+    "privacy": "Maxfiylik"
   }
 }

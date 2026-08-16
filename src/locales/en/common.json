@@ -7,6 +7,7 @@
     "reminders": "Reminders",
     "progress": "Progress",
     "store": "Store",
+    "tools": "Health Tools",
     "cart": "Cart",
     "profile": "Profile",
     "about": "About",
@@ -34,7 +35,8 @@
     "sort": "Sort",
     "loadMore": "Load more",
     "viewAll": "View all",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "hide": "Hide result"
   },
   "states": {
     "loading": "Loading…",
@@ -59,5 +61,18 @@
   "notFound": {
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist or has been moved."
+  },
+  "footer": {
+    "tagline": "Your all-in-one wellness companion — habits, reminders, store and emergency help in one place.",
+    "trustBadge": "Trusted by 12,000+ users",
+    "productsTitle": "Products",
+    "resourcesTitle": "Resources",
+    "contactTitle": "Contact",
+    "address": "450 Sutter Health Way, San Francisco, CA",
+    "phone": "+1 (555) 000-9111",
+    "email": "hello@healthflow.app",
+    "rights": "All rights reserved.",
+    "legal": "Legal",
+    "privacy": "Privacy"
   }
 }

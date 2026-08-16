@@ -45,7 +45,12 @@
     "noResults": "Filtrlaringizga mos klinika topilmadi",
     "clearFilters": "Filtrlarni tozalash",
     "directions": "Yo‘nalish",
-    "call": "Qo‘ng‘iroq"
+    "call": "Qo‘ng‘iroq",
+    "openNow": "Hozir ochiq",
+    "open": "Ochiq",
+    "closed": "Yopiq",
+    "er24h": "24/7 bo‘lim",
+    "legend": "Belgilar"
   },
   "locationPrompt": {
     "title": "Yaqin atrofdan yordam topish",

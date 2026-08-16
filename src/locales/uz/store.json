@@ -15,5 +15,8 @@
   "errorDescription": "Mahsulotlar katalogiga ulanib bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.",
   "resultsCount": "{{count}} ta mahsulot",
   "addToCart": "Savatga qo‘shish",
-  "view": "Ko‘rish"
+  "view": "Ko‘rish",
+  "outOfStock": "Sotuvda yo‘q",
+  "inStock": "mavjud",
+  "unavailable": "Mavjud emas"
 }

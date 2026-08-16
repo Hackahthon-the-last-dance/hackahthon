@@ -10,6 +10,7 @@ import LanguageSwitcher from '../shared/LanguageSwitcher.jsx';
 const PUBLIC_LINKS = [
   { to: '/', key: 'home' },
   { to: '/store', key: 'store' },
+  { to: '/tools', key: 'tools' },
   { to: '/about', key: 'about' },
   { to: '/emergency', key: 'emergency' },
 ];
@@ -20,6 +21,7 @@ const AUTHED_LINKS = [
   { to: '/reminders', key: 'reminders' },
   { to: '/progress', key: 'progress' },
   { to: '/store', key: 'store' },
+  { to: '/tools', key: 'tools' },
   { to: '/emergency', key: 'emergency' },
 ];
 

@@ -45,7 +45,12 @@
     "noResults": "No clinics match your filters",
     "clearFilters": "Clear filters",
     "directions": "Directions",
-    "call": "Call"
+    "call": "Call",
+    "openNow": "Open now",
+    "open": "Open",
+    "closed": "Closed",
+    "er24h": "24/7 ER",
+    "legend": "Legend"
   },
   "locationPrompt": {
     "title": "Find nearby help",

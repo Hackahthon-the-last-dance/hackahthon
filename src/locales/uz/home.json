@@ -4,14 +4,91 @@
     "title": "O‘zingizga har kuni g‘amxo‘rlik qiling.",
     "subtitle": "Odatlaringizni kuzating, kuningizni rejalashtiring, faol bo‘ling va salomatligingizga oid barcha narsani bitta oddiy joyda saqlang.",
     "getStarted": "Boshlash",
-    "exploreStore": "Do‘konni ko‘rish"
+    "exploreStore": "Do‘konni ko‘rish",
+    "emergency": "Shoshilinch yordam"
+  },
+  "stats": {
+    "facilities": "Tibbiyot muassasalari",
+    "products": "Sog‘lomlik mahsulotlari",
+    "users": "Faol foydalanuvchilar",
+    "rating": "O‘rtacha reyting"
+  },
+  "features": {
+    "eyebrow": "Nega HealthFlow",
+    "title": "Sog‘lom bo‘lish uchun kerak bo‘lgan hamma narsa",
+    "subtitle": "Kundalik odatlar, salomatlikni kuzatish, do‘kon va shoshilinch yordam — bitta oddiy ilovada.",
+    "habits": {
+      "title": "Kundalik odatlar hisobi",
+      "description": "Suv, uyqu va mashqlarni soniyalarda qayd eting va seriyalaringizni davom ettiring."
+    },
+    "reminders": {
+      "title": "Aqlli eslatmalar",
+      "description": "Dori, ko‘rik va boshqa vazifalarni o‘z vaqtida eslatmalar yordamida unutmang."
+    },
+    "emergency": {
+      "title": "Shoshilinch yordamga tayyor",
+      "description": "Bir bosishda SOS, Medical ID va yaqin atrofdagi ochiq muassasalar xaritasi."
+    },
+    "store": {
+      "title": "Sog‘lomlik do‘koni",
+      "description": "Sharhlar va tezkor yetkazib berish bilan ishonchli mahsulotlarni xarid qiling."
+    },
+    "progress": {
+      "title": "Natijalar tahlili",
+      "description": "Aniq grafiklar va haftalik hisobotlar bilan dinamikangizni kuzating."
+    },
+    "medicalId": {
+      "title": "Medical ID hamyonboshda",
+      "description": "Qon guruhingiz, allergiyalar va kontaktlar qutqaruvchilar uchun doim tayyor."
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Qanday ishlaydi",
+    "title": "Sog‘lom bo‘lishning uch qadami",
+    "create": {
+      "title": "Profil yarating",
+      "description": "Soniyalarda ro‘yxatdan o‘ting va maqsadlaringizni belgilang — suv, uyqu, mashqlar va boshqalar."
+    },
+    "track": {
+      "title": "Har kuni qayd eting",
+      "description": "Kundalik odatlaringizni yozing, eslatmalar esa jadvaldan chiqishga qo‘ymaydi."
+    },
+    "improve": {
+      "title": "Natijalaringizni kuzating",
+      "description": "Hisobot va tahlillar bilan dinamikangiz o‘sishini ko‘ring."
+    }
   },
   "preview": {
     "title": "Barchasi bir joyda",
+    "subtitle": "Haqiqatan foydalanadigan vositalar",
+    "cta": "Bepul akkaunt yarating",
     "water": { "label": "Suv", "hint": "Kunlik suv iste’molini kuzating" },
     "sleep": { "label": "Uyqu", "hint": "Sog‘lom tartib shakllantiring" },
     "workout": { "label": "Mashqlar", "hint": "Faoliyatingizni qayd eting" },
     "medication": { "label": "Dorilar", "hint": "Qabul qilishni unutmang" },
     "tasks": { "label": "Bugungi vazifalar", "hint": "Kun uchun aniq reja" }
+  },
+  "tips": {
+    "eyebrow": "Sog‘liq bo‘yicha maslahatlar",
+    "title": "Kichik odatlar — katta natijalar",
+    "subtitle": "Har kuni o‘zingizni yaxshi his qilishingizga yordam beradigan ilmiy asoslangan maslahatlar."
+  },
+  "testimonials": {
+    "one": {
+      "quote": "Ilgari hech qaysi odat kuzatuvchisiga amal qilmasdim — HealthFlow nihoyat shunchalik sodda bo‘ldiki, uni har kuni ishlataman."
+    },
+    "two": {
+      "quote": "Faqat eslatmalarning o‘zi yetarli. Ilovani ishlatganimdan beri dorini bir marta ham o‘tkazib yubormadim."
+    },
+    "three": {
+      "quote": "Eng yaqin shoshilinch bo‘limni bilish va Medical ID tayyor bo‘lishi ota-ona sifatida menga xotirjamlik beradi."
+    }
+  },
+  "cta": {
+    "title": "Bugunoq sog‘lom kundalik tartibni boshlang",
+    "subtitle": "HealthFlow bilan salomatligini kuzatayotgan minglab odamlarga qo‘shiling. Bir daqiqadan ham kam vaqt ketadi.",
+    "emailPlaceholder": "Emailingizni kiriting",
+    "subscribe": "Obuna bo‘lish",
+    "privacy": "Bepul. Spam yo‘q. Ixtiyoriy vaqtda obunani bekor qilish."
   }
 }

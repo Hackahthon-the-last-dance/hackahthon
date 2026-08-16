@@ -23,6 +23,7 @@ const Cart = lazy(() => import('./pages/Cart.jsx'));
 const Checkout = lazy(() => import('./pages/Checkout.jsx'));
 const Profile = lazy(() => import('./pages/Profile.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
+const Tools = lazy(() => import('./pages/Tools.jsx'));
 const Emergency = lazy(() => import('./pages/Emergency.jsx'));
 const Seller = lazy(() => import('./pages/Seller.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
@@ -53,6 +54,7 @@ export default function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/about" element={<About />} />
+              <Route path="/tools" element={<Tools />} />
               <Route path="/emergency" element={<Emergency />} />
               <Route path="/store" element={<Store />} />
               <Route path="/store/:id" element={<Product />} />

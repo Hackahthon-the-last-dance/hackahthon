@@ -4,14 +4,91 @@
     "title": "Take care of yourself. Every day.",
     "subtitle": "Track your habits, plan your day, stay active and keep everything about your wellness in one simple place.",
     "getStarted": "Get Started",
-    "exploreStore": "Explore Store"
+    "exploreStore": "Explore Store",
+    "emergency": "Emergency Help"
+  },
+  "stats": {
+    "facilities": "Healthcare facilities",
+    "products": "Wellness products",
+    "users": "Active users",
+    "rating": "Average rating"
+  },
+  "features": {
+    "eyebrow": "Why HealthFlow",
+    "title": "Everything you need to stay healthy",
+    "subtitle": "One app for daily habits, health tracking, store and emergency help — designed to be simple.",
+    "habits": {
+      "title": "Daily habit tracking",
+      "description": "Log water, sleep and workouts in seconds and keep your streaks going."
+    },
+    "reminders": {
+      "title": "Smart reminders",
+      "description": "Never miss medication, a checkup or any health task with timely reminders."
+    },
+    "emergency": {
+      "title": "Emergency-ready",
+      "description": "One-tap SOS, Medical ID and a live map of nearby open facilities."
+    },
+    "store": {
+      "title": "Wellness store",
+      "description": "Shop trusted wellness essentials with reviews, ratings and fast delivery."
+    },
+    "progress": {
+      "title": "Progress insights",
+      "description": "See your momentum with clear charts and weekly summaries."
+    },
+    "medicalId": {
+      "title": "Medical ID on hand",
+      "description": "Your blood type, allergies and contacts available to responders."
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "title": "Get healthy in three steps",
+    "create": {
+      "title": "Create your profile",
+      "description": "Sign up in seconds and set your goals — water, sleep, workouts and more."
+    },
+    "track": {
+      "title": "Track every day",
+      "description": "Log your daily habits and let reminders keep you on schedule."
+    },
+    "improve": {
+      "title": "See your progress",
+      "description": "Watch your momentum grow with insights and weekly reports."
+    }
   },
   "preview": {
     "title": "Everything in one place",
+    "subtitle": "Tools you'll actually use",
+    "cta": "Create free account",
     "water": { "label": "Water", "hint": "Track your daily intake" },
     "sleep": { "label": "Sleep", "hint": "Build a healthy rhythm" },
     "workout": { "label": "Workout", "hint": "Log your activity" },
     "medication": { "label": "Medication", "hint": "Never miss a dose" },
     "tasks": { "label": "Today's tasks", "hint": "One clear plan for the day" }
+  },
+  "tips": {
+    "eyebrow": "Health tips",
+    "title": "Small habits, big results",
+    "subtitle": "Evidence-based wellness tips to help you feel better every day."
+  },
+  "testimonials": {
+    "one": {
+      "quote": "I've never stuck with a habit tracker before — HealthFlow finally made it simple enough that I actually use it every day."
+    },
+    "two": {
+      "quote": "The reminders alone are worth it. I haven't missed my medication once since I started using the app."
+    },
+    "three": {
+      "quote": "Knowing the nearest ER and having my Medical ID ready gives me real peace of mind as a parent."
+    }
+  },
+  "cta": {
+    "title": "Start your healthier routine today",
+    "subtitle": "Join thousands already tracking their wellness with HealthFlow. It takes less than a minute to get started.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "privacy": "Free to join. No spam. Unsubscribe anytime."
   }
 }

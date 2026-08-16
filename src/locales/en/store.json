@@ -15,5 +15,8 @@
   "errorDescription": "We couldn’t reach the product catalog. Check your connection and try again.",
   "resultsCount": "{{count}} products",
   "addToCart": "Add to cart",
-  "view": "View"
+  "view": "View",
+  "outOfStock": "Out of stock",
+  "inStock": "in stock",
+  "unavailable": "Unavailable"
 }

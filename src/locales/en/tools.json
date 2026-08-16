@@ -1,0 +1,47 @@
+{
+  "title": "Health Tools",
+  "subtitle": "Quick calculators to better understand your body and daily needs.",
+  "calculate": "Calculate",
+  "age": "Age",
+  "height": "Height",
+  "weight": "Weight",
+  "male": "Male",
+  "female": "Female",
+  "bmi": {
+    "title": "BMI Calculator",
+    "hint": "Body mass index",
+    "gender": "Gender",
+    "category": "Category",
+    "levels": {
+      "underweight": "Underweight",
+      "normal": "Normal weight",
+      "overweight": "Overweight",
+      "obese": "Obesity"
+    },
+    "note": "BMI is a screening tool, not a diagnosis. Athletes and others with high muscle mass may show a higher number without it being unhealthy."
+  },
+  "water": {
+    "title": "Daily Water Intake",
+    "hint": "Personal hydration target",
+    "activity": "Activity level",
+    "low": "Sedentary (little exercise)",
+    "medium": "Moderate (3–5 workouts/week)",
+    "high": "Active (daily training)",
+    "daily": "Recommended per day",
+    "note": "This is a starting estimate based on your weight and activity. Increase intake in hot weather or during intense exercise."
+  },
+  "calories": {
+    "title": "Daily Calorie Needs",
+    "hint": "Mifflin-St Jeor estimate",
+    "activity": "Activity level",
+    "levels": {
+      "sedentary": "Sedentary (office work)",
+      "light": "Light (1–3 workouts/week)",
+      "moderate": "Moderate (3–5 workouts/week)",
+      "active": "Active (6–7 workouts/week)",
+      "veryActive": "Very active (physical job)"
+    },
+    "daily": "kcal per day to maintain weight",
+    "note": "Results are estimates. Consult a doctor or dietitian before making major changes to your nutrition."
+  }
+}
